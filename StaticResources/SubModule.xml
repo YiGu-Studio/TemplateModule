@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Module>
+  <Name value="Yigu TemplateModule"/>
+  <Id value="Yigu.TemplateModule"/>
+  <Version value="e1.0.0"/>
+  <DefaultModule value="false"/>
+  <SingleplayerModule value="true"/>
+  <MultiplayerModule value="false"/>
+  <Official value="false"/>
+
+  <DependedModules/>
+
+  <!-- Prototype -->
+  <DependedModuleMetadatas>
+    <DependedModuleMetadata id="Native" order="LoadBeforeThis" version="e1.5.9.*" />
+    <DependedModuleMetadata id="SandBoxCore" order="LoadBeforeThis" version="e1.5.9.*" />
+    <DependedModuleMetadata id="Sandbox" order="LoadBeforeThis" version="e1.5.9.*" />
+    <DependedModuleMetadata id="StoryMode" order="LoadBeforeThis" version="e1.5.9.*" optional="true" />
+    <DependedModuleMetadata id="CustomBattle" order="LoadBeforeThis" version="e1.5.9.*" optional="true" />
+  </DependedModuleMetadatas>
+
+  <SubModules>
+    <SubModule>
+      <Name value="Yigu.TemplateModule"/>
+      <DLLName value="Yigu.TemplateModule.dll"/>
+      <SubModuleClassType value="Yigu.TemplateModule.SubModule"/>
+      <Tags>
+        <Tag key="DedicatedServerType" value="none" />
+        <Tag key="IsNoRenderModeElement" value="false" />
+      </Tags>
+    </SubModule>
+  </SubModules>
+
+  <Xmls/>
+</Module>

@@ -1,0 +1,9 @@
+<Project>
+ <PropertyGroup>
+   <!-- replace it with your own game installation directory -->
+   <GameFolder>D:\Program Files\Steam\SteamApps\common\Mount &amp; Blade II Bannerlord</GameFolder>
+ </PropertyGroup>
+
+ <Import Project="$(MSBuildThisFileDirectory)/build.props" />
+
+</Project>

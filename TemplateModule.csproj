@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+    <NoWarn>NU1701</NoWarn>
+    <Platforms>AnyCPU;x64</Platforms>
+    <RootNamespace>Yigu.TemplateModule</RootNamespace>
+    <AssemblyName>Yigu.TemplateModule</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <!--Reference the main game libraries, including the modules.
+       Make sure to make your module depend on any game module that you use.-->
+  <ItemGroup>
+    <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.*.dll" Exclude="$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.Native.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\Modules\Native\bin\Win64_Shipping_Client\*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\Modules\SandBox\bin\Win64_Shipping_Client\*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\Modules\SandBoxCore\bin\Win64_Shipping_Client\*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\Modules\StoryMode\bin\Win64_Shipping_Client\*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Core\**" />
+    <EmbeddedResource Remove="Core\**" />
+    <None Remove="Core\**" />
+    <ProjectReference Include=".\Core\Core.csproj">
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+
+  <!--For automatically creating the module-->
+  <PropertyGroup>
+    <StaticResourceDirs>ModuleData</StaticResourceDirs>
+  </PropertyGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="$(ModuleName) != ''">
+    <CreateDirectory Directory="$(GameFolder)/Modules/$(ModuleName)/bin/Win64_Shipping_Client" />
+
+    <CopyFolder FromDirectory="$(TargetDir)" ToDirectory="$(GameFolder)/Modules/$(ModuleName)/bin/Win64_Shipping_Client" IncludeRegex="^Yigu\..+\.(dll|pdb)$" Clean="false" />
+    <CopyFolder FromDirectory="$(TargetDir)" ToDirectory="$(GameFolder)/Modules/$(ModuleName)/bin/Win64_Shipping_Client" IncludeRegex="^Newtonsoft.Json.(dll|pdb)$" Clean="false" />
+
+    <CopyFolder FromDirectory="$(ProjectDir)/StaticResources" ToDirectory="$(GameFolder)/Modules/$(ModuleName)" IncludeRegex="^.*$" Clean="false" />
+
+    <!--<CopyStaticResources fromDirPrefix="$(MSBuildProjectDirectory)" dirList="$(StaticResourceDirs)" toDirPrefix="$(GameFolder)/Modules/$(ModuleName)" Clean="true" />-->
+  </Target>
+</Project>
