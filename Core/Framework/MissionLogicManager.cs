@@ -135,6 +135,14 @@ namespace Yigu.Core.Framework
                 m.OnAgentMount(agent);
             }
         }
+
+        protected override void OnObjectDisabled(DestructableComponent destructionComponent)
+        { 
+            foreach (var m in missionLogicList)
+            {
+                m.OnObjectDisabled(destructionComponent);
+            }
+        }
         #endregion
     }
 }

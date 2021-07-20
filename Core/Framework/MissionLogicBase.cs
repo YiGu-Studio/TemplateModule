@@ -77,5 +77,7 @@ namespace Yigu.Core.Framework
         public virtual void OnMissionTick(float dt) { }
 
         public virtual void OnAgentMount(Agent agent) { }
+
+        public virtual void OnObjectDisabled(DestructableComponent destructionComponent) { }
     }
 }
