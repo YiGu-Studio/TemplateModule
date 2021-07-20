@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Yigu.Core.Framework;
 using Yigu.Core.Config;
+using Yigu.ThreeKingdoms.MyMod;
 
 namespace Yigu.TemplateModule
 {

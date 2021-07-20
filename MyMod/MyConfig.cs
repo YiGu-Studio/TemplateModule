@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Yigu.Core.Config;
 using Yigu.Core.Config.Data;
 
-namespace Yigu.TemplateModule
+namespace Yigu.ThreeKingdoms.MyMod
 {
     public class MyConfig : BaseConfig
     {

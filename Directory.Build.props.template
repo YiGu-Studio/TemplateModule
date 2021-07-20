@@ -2,8 +2,8 @@
  <PropertyGroup>
    <!-- replace it with your own game installation directory -->
    <GameFolder>D:\Program Files\Steam\SteamApps\common\Mount &amp; Blade II Bannerlord</GameFolder>
+   <GameVersion>1.5.10</GameVersion>
+   <ModuleName>Yigu.TemplateModule</ModuleName>
+   <Version>1.0.0</Version>
  </PropertyGroup>
-
- <Import Project="$(MSBuildThisFileDirectory)/build.props" />
-
 </Project>
