@@ -52,3 +52,5 @@ public float SomeOption {get;set;} = 2.0;
 
 ### `StaticResources`文件夹
 这是游戏的静态资源文件夹，该目录下的所有文件/文件夹将被copy到Mod目录即游戏的`Modules\Yigu.TemplateModule`下。
+
+静态资源合并到主项目时，将该目录下的每个文件夹分别合并到主项目的对应文件夹即可，请注意合并时候不要直接覆盖，有一些诸如翻译文件`ModuleData\Languages\CNs\std_config_strings_xml-zho-CN.xml`在主项目中已经存在，你需要把文件内容进行手工编辑与合并。`SubModule.xml`不需要合并。
