@@ -12,7 +12,7 @@
 
     * `MyModule.cs`: 这是你的Mod代码入口。首先你需要修改`namespace`，目前三国mod的命名空间为`Yigu.ThreeKingdoms.子类别.Mod名`，其中子类别目前有`Battlefield`（战场类）和`Campaign`（战役类，指一个存档中的全局要素）。例如战场小地图Mod的命名空间是`Yigu.ThreeKingdoms.Battlefield.MiniMap`。一个响亮而有意义的名字是重要的，它有助于让你的代码和其它Mod不起冲突。
 
-    你的`MyModule`类需要继承泛型类`Yigu.Core.Framework.ModuleBase<ConfigType>`，其中`ConfigType`是你的配置文件类（参见下文`MyConfig.cs`），并实现函数`OnSubModuleLoad()`。这个类的效果类似于`TaleWorlds.MountAndBlade.MBSubModuleBase`，提供了一系列`OnXXX()`函数允许你在Mod运行的各个时间点运行你的代码逻辑。
+        你的`MyModule`类需要继承泛型类`Yigu.Core.Framework.ModuleBase<ConfigType>`，其中`ConfigType`是你的配置文件类（参见下文`MyConfig.cs`），并实现函数`OnSubModuleLoad()`。这个类的效果类似于`TaleWorlds.MountAndBlade.MBSubModuleBase`，提供了一系列`OnXXX()`函数允许你在Mod运行的各个时间点运行你的代码逻辑。
 
         * `IEnumerable<Yigu.Core.Framework.MissionLogicBase> MissionLogics`: 可以override该属性，在`OnMissionBehaviorInitialize()`时候会自动加载这些MissionLogic（参见下文`MyMissionLogic.cs`）
 
